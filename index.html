@@ -93,7 +93,7 @@
   .dim-icon { font-size: 20px; }
   .dim-title { font-size: 15px; font-weight: 700; color: var(--navy); }
   .dim-subtitle { font-size: 11px; color: var(--mid-gray); margin-top: 1px; }
-  .dim-score-mini { margin-left: auto; font-size: 11px; color: var(--teal); font-weight: 600; }
+  .dim-score-mini { margin-left: auto; font-size: 11px; color: var(--teal); font-weight: 600; visibility: hidden; }
 
   /* ── QUESTIONS ──────────────────────────────────────── */
   .question { padding: 16px 20px; border-bottom: 1px solid #F0F4F8; }
@@ -270,7 +270,7 @@
       <div class="dim-title">Your Profile</div>
       <div class="dim-subtitle">Takes 30 seconds · Name &amp; company used only for research follow-up · Assessment is anonymous if you prefer</div>
     </div>
-    <div class="dim-score-mini" style="color:#1E8A5A" id="profileComplete"></div>
+    <div class="dim-score-mini" style="color:#1E8A5A;visibility:visible" id="profileComplete"></div>
   </div>
 
   <div style="padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
@@ -312,8 +312,9 @@
         onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
         <option value="">— Select your industry —</option>
         <option value="Retail/eCommerce">Retail / eCommerce</option>
+        <option value="FMCG/Consumer Goods">FMCG / Consumer Goods</option>
         <option value="Manufacturing (Discrete)">Manufacturing (Discrete)</option>
-        <option value="Manufacturing (Process/FMCG)">Manufacturing (Process / FMCG)</option>
+        <option value="Manufacturing (Process)">Manufacturing (Process)</option>
         <option value="Logistics/3PL">Logistics / 3PL</option>
         <option value="Technology/Telecom">Technology / Telecom</option>
         <option value="Pharma">Pharma</option>
@@ -508,7 +509,7 @@
       <label class="option"><input type="radio" name="q12" value="1"><div class="option-score">1</div><div class="option-text">No budget allocated — AI is not a current priority</div></label>
       <label class="option"><input type="radio" name="q12" value="2"><div class="option-score">2</div><div class="option-text">Exploratory budget only — 1–2 pilots, no scale commitment</div></label>
       <label class="option"><input type="radio" name="q12" value="3"><div class="option-score">3</div><div class="option-text">Active investment across multiple functions with proven pilots</div></label>
-      <label class="option"><input type="radio" name="q12" value="4"><div class="option-score">4</div><div class="option-text">Board-level mandate with dedicated AI/SCM team and multi-year roadmap</div></label>
+      <label class="option"><input type="radio" name="q12" value="4"><div class="option-score">4</div><div class="option-text">Board-level mandate with dedicated AI team for demand planning and multi-year roadmap</div></label>
     </div>
   </div>
 
@@ -573,9 +574,9 @@
     <div class="q-header"><div class="q-num">17</div><div class="q-text">Does your organization have a dedicated team or capability for AI/data science in supply chain?</div></div>
     <div class="options">
       <label class="option"><input type="radio" name="q17" value="1"><div class="option-score">1</div><div class="option-text">No dedicated capability — IT handles all technical requests</div></label>
-      <label class="option"><input type="radio" name="q17" value="2"><div class="option-score">2</div><div class="option-text">Shared data team where SCM is one of many priorities</div></label>
-      <label class="option"><input type="radio" name="q17" value="3"><div class="option-score">3</div><div class="option-text">Dedicated SCM analytics roles within the supply chain function</div></label>
-      <label class="option"><input type="radio" name="q17" value="4"><div class="option-score">4</div><div class="option-text">Embedded AI engineering capability within the SCM function</div></label>
+      <label class="option"><input type="radio" name="q17" value="2"><div class="option-score">2</div><div class="option-text">Shared data team where demand planning is one of many priorities</div></label>
+      <label class="option"><input type="radio" name="q17" value="3"><div class="option-score">3</div><div class="option-text">Dedicated analytics roles within the demand planning function</div></label>
+      <label class="option"><input type="radio" name="q17" value="4"><div class="option-score">4</div><div class="option-text">Embedded AI engineering capability within the demand planning function</div></label>
     </div>
   </div>
 
@@ -623,38 +624,40 @@
 
 <!-- RESULTS SECTION -->
 <div id="results">
+
+  <!-- STAGE HERO -->
   <div class="results-header">
     <div class="results-stage" id="stageLabel">MATURITY STAGE</div>
     <div class="results-title" id="stageTitle">—</div>
-    <div><span class="results-score" id="totalScore">—</span><span class="results-max"> / 80</span></div>
     <div class="results-desc" id="stageDesc">—</div>
   </div>
 
-  <div class="dim-scores-grid">
-    <div class="dim-score-card"><div class="icon">🗄️</div><div class="name">Data Quality & Infrastructure</div><div><span class="score" id="dScoreA">—</span><span class="out-of">/20</span></div><div class="dim-bar"><div class="dim-bar-fill" id="dBarA"></div></div></div>
-    <div class="dim-score-card"><div class="icon">⚙️</div><div class="name">Planning Workflows</div><div><span class="score" id="dScoreB">—</span><span class="out-of">/20</span></div><div class="dim-bar"><div class="dim-bar-fill" id="dBarB"></div></div></div>
-    <div class="dim-score-card"><div class="icon">🔒</div><div class="name">Governance & Trust</div><div><span class="score" id="dScoreC">—</span><span class="out-of">/20</span></div><div class="dim-bar"><div class="dim-bar-fill" id="dBarC"></div></div></div>
-    <div class="dim-score-card"><div class="icon">👥</div><div class="name">Organizational Readiness</div><div><span class="score" id="dScoreD">—</span><span class="out-of">/20</span></div><div class="dim-bar"><div class="dim-bar-fill" id="dBarD"></div></div></div>
+  <!-- BOTTLENECK INSIGHT — replaces raw score grid -->
+  <div style="background:white; border:1px solid #E2E8EF; border-radius:12px; padding:20px; margin-bottom:20px;">
+    <h3 style="font-size:14px; font-weight:700; color:#1F3864; margin-bottom:14px;">🔍 Your Biggest Barrier to the Next Stage</h3>
+    <div id="bottleneckInsight" style="font-size:13px; color:#3D5166; line-height:1.7;"></div>
   </div>
 
+  <!-- PLATFORM FIT -->
   <div class="platform-rec">
     <h3>🎯 Platform Fit at Your Maturity Stage</h3>
     <div class="platform-chips" id="platformRec"></div>
   </div>
 
+  <!-- ROADMAP -->
   <div class="roadmap">
     <h3>📋 Your Prioritized Action Roadmap</h3>
     <div id="roadmapItems"></div>
   </div>
 
-  <!-- SUBMIT TO RESEARCH -->
+  <!-- SUBMIT — primary CTA, prominent -->
   <div class="submit-section">
-    <h3>🎓 Contribute to Demand Planning Research</h3>
-    <p>Your responses help us understand AI adoption patterns across retail, manufacturing, and logistics. The form takes 60 seconds — your scores are pre-filled automatically. All data is anonymous and used only for academic research.</p>
+    <h3>🎓 One last step — share your results with our research</h3>
+    <p>You've completed the assessment. Click below to submit your responses to the IIT Delhi research study on AI adoption in demand planning. Everything is pre-filled — just confirm and submit. Takes under 30 seconds.</p>
     <button class="btn-submit" id="submitBtn" onclick="submitToGoogleForm()">
-      Submit My Results to Research →
+      Submit My Results →
     </button>
-    <div class="submit-note">Opens Google Form in a new tab · Industry, platform, role &amp; scores are pre-filled · Takes 30 seconds</div>
+    <div class="submit-note">Google Form opens in a new tab · All fields pre-filled · Anonymous</div>
   </div>
 
   <button class="btn-retake" onclick="retakeAssessment()">↩ Retake Assessment</button>
@@ -670,45 +673,48 @@
 
 <script>
 // ── SCORING CONFIG ────────────────────────────────────────────────
+// Stage boundaries use equal interval scaling across the 60-point range (20–80).
+// Each 15-point band corresponds to an average Likert response of ~1, ~2, ~3, ~4.
+// Stage 1: avg 1.0–1.7 | Stage 2: avg 1.75–2.45 | Stage 3: avg 2.5–3.2 | Stage 4: avg 3.25–4.0
 const STAGES = [
-  { min:0,  max:30, num:1, name:"Statistical Forecasting",   label:"STAGE 1", color:"#8FA3B1",
-    desc:"Your organization relies on historical data and planner overrides. AI readiness is foundational — focus on data governance and basic workflow digitization before investing in AI platforms.",
+  { min:20, max:34, num:1, name:"Statistical Forecasting",   label:"STAGE 1", color:"#8FA3B1",
+    desc:"Your organization relies primarily on historical data and planner overrides. AI readiness is foundational — focus on data governance and basic workflow digitization before investing in AI platforms.",
     platforms:["Start with: SAP IBP Basic","Excel → APS transition"],
     roadmap:[
       {priority:"High", text:"Fix data quality first — establish a data governance policy covering demand history completeness, ERP integration, and master data standards."},
-      {priority:"High", text:"Document your S&OP process end-to-end before automating it — AI agents can only orchestrate what is already defined."},
+      {priority:"High", text:"Document your S&OP process end-to-end before automating it — AI agents can only orchestrate workflows that are already defined and structured."},
       {priority:"Med",  text:"Pilot basic ML forecasting on your highest-volume SKUs using SAP IBP's built-in algorithms or Blue Yonder / JDA Demand Edge."},
-      {priority:"Low",  text:"Begin organizational readiness by training planning team on how to read and validate AI-generated forecasts."}
+      {priority:"Low",  text:"Begin organizational readiness by training the planning team on how to read and validate AI-generated forecasts."}
     ]
   },
-  { min:31, max:45, num:2, name:"AI/ML Forecasting",         label:"STAGE 2", color:"#17A8B4",
-    desc:"ML is in use but primarily for forecast generation. You have the data foundation in place. The next step is exception-based workflows and explainability — moving planners from reviewing everything to managing by exception.",
+  { min:35, max:49, num:2, name:"AI/ML Forecasting",         label:"STAGE 2", color:"#17A8B4",
+    desc:"ML is in use but primarily for forecast generation. You have a data foundation in place. The next step is exception-based workflows and explainability — moving planners from reviewing everything to managing by exception.",
     platforms:["Blue Yonder / JDA (Luminate)","SAP IBP with Joule AI","Oracle SCM Cloud"],
     roadmap:[
-      {priority:"High", text:"Implement planner-by-exception workflows — configure your system to only alert planners to significant forecast deviations, not routine SKUs."},
+      {priority:"High", text:"Implement planner-by-exception workflows — configure your system to alert planners only to significant forecast deviations, not routine SKUs."},
       {priority:"High", text:"Deploy XAI (explainability) features: planners should see WHY a forecast changed, not just that it changed. Blue Yonder / JDA's driver waterfall is the market benchmark."},
-      {priority:"Med",  text:"Strengthen governance: define which AI-generated replenishment orders can execute automatically and which require approval."},
-      {priority:"Low",  text:"Build organizational trust through transparency — publish weekly reports showing AI forecast accuracy vs. manual override accuracy."}
+      {priority:"Med",  text:"Strengthen governance: define which AI-generated replenishment orders can execute automatically and which require human approval."},
+      {priority:"Low",  text:"Build organizational trust through transparency — publish periodic reports showing AI forecast accuracy vs. manual override accuracy."}
     ]
   },
-  { min:46, max:60, num:3, name:"AI-Assisted Planning",      label:"STAGE 3", color:"#C55A11",
+  { min:50, max:64, num:3, name:"AI-Assisted Planning",      label:"STAGE 3", color:"#C55A11",
     desc:"You have strong AI foundations and planners are working effectively with AI recommendations. The final step toward Stage 4 is defining tiered autonomy — determining what AI can execute without human approval — and deploying live AI agents.",
     platforms:["Kinaxis Maestro","SAP IBP + Joule Agents","o9 Solutions Digital Brain"],
     roadmap:[
-      {priority:"High", text:"Define your tiered autonomy policy — document exactly which decisions the AI can execute autonomously vs. which require planner approval (by value, risk, or category)."},
+      {priority:"High", text:"Define your tiered autonomy policy — document exactly which decisions AI can execute autonomously vs. which require planner approval (by value, risk, or category)."},
       {priority:"High", text:"Deploy your first live AI agent for a bounded use case — start with automated replenishment for your most stable, high-volume SKUs."},
       {priority:"Med",  text:"Invest in organizational change management — planner trust in autonomous execution is the most common remaining barrier at this stage."},
       {priority:"Low",  text:"Evaluate Kinaxis Maestro Agent Studio or o9 APEX for composable agent orchestration across demand, supply, and procurement."}
     ]
   },
-  { min:61, max:80, num:4, name:"Agentic AI Planning",       label:"STAGE 4", color:"#1E8A5A",
+  { min:65, max:80, num:4, name:"Agentic AI Planning",       label:"STAGE 4", color:"#1E8A5A",
     desc:"Your organization is at or near the agentic AI frontier. You have strong data foundations, digitized workflows, defined governance, and an AI-ready team. Focus shifts to multi-agent orchestration, LLM-based cross-domain reasoning, and ecosystem-level coordination.",
     platforms:["Kinaxis Maestro (Agent Studio)","o9 Solutions (APEX + Neuro-Symbolic AI)","Blue Yonder / JDA (Agentic AI Stack)"],
     roadmap:[
       {priority:"High", text:"Explore multi-agent architectures — Kinaxis Maestro Agent Studio and o9 APEX both support composable agents across demand, supply, and procurement domains."},
       {priority:"High", text:"Invest in ecosystem-level orchestration — AI agents coordinating with supplier, manufacturer, and logistics partner systems simultaneously."},
       {priority:"Med",  text:"Evaluate LLM-based natural language planning interfaces (SAP Joule, Oracle Digital Assistant) for democratizing planning access across business functions."},
-      {priority:"Low",  text:"Publish your agentic AI governance framework internally and externally — you are now ahead of 80% of organizations in the market."}
+      {priority:"Low",  text:"Publish your agentic AI governance framework internally — you are now ahead of the majority of organizations in the market."}
     ]
   }
 ];
@@ -805,18 +811,35 @@ function generateResults() {
   // Populate results
   document.getElementById('stageLabel').textContent = stage.label + (greeting ? ' · ' + greeting : '');
   document.getElementById('stageTitle').textContent = stage.name;
-  document.getElementById('totalScore').textContent  = total;
-  document.getElementById('stageDesc').textContent   = stage.desc;
+  document.getElementById('stageDesc').textContent  = stage.desc;
 
-  document.getElementById('dScoreA').textContent = sA;
-  document.getElementById('dScoreB').textContent = sB;
-  document.getElementById('dScoreC').textContent = sC;
-  document.getElementById('dScoreD').textContent = sD;
+  // Bottleneck insight — find lowest scoring dimension
+  const dimData = [
+    { icon:'🗄️', name:'Data Quality & Infrastructure',    score:sA },
+    { icon:'⚙️', name:'Planning Workflows & Processes',   score:sB },
+    { icon:'🔒', name:'Governance, Trust & Approval',     score:sC },
+    { icon:'👥', name:'Organizational & Human Readiness', score:sD },
+  ];
+  const weakest = dimData.reduce((a, b) => a.score < b.score ? a : b);
+  const strongest = dimData.reduce((a, b) => a.score > b.score ? a : b);
 
-  document.getElementById('dBarA').style.width = (sA/20*100) + '%';
-  document.getElementById('dBarB').style.width = (sB/20*100) + '%';
-  document.getElementById('dBarC').style.width = (sC/20*100) + '%';
-  document.getElementById('dBarD').style.width = (sD/20*100) + '%';
+  const bottleneckMessages = {
+    'Data Quality & Infrastructure':    'Your data foundation is the primary constraint. AI platforms can only perform as well as the data fed into them — poor data quality means poor AI output, regardless of which platform you deploy.',
+    'Planning Workflows & Processes':   'Your planning processes need digitization before AI can help. AI agents can only orchestrate workflows that already exist in structured, documented form. Excel-based or ad-hoc processes cannot be automated.',
+    'Governance, Trust & Approval':     'Governance is your critical gap. Without defined rules for when AI can act autonomously vs. when a human must approve, agentic AI cannot be safely deployed — this is the most common barrier at Stage 2→3.',
+    'Organizational & Human Readiness': 'People and change management are holding you back. Technology readiness often outpaces human readiness — planner trust, AI literacy, and formal change management are the final barriers before autonomous planning.',
+  };
+
+  document.getElementById('bottleneckInsight').innerHTML =
+    `<div style="display:flex;align-items:flex-start;gap:12px;">
+      <div style="background:#FFF3E0;border-radius:8px;padding:10px 14px;flex:1;">
+        <div style="font-size:12px;font-weight:600;color:#C55A11;margin-bottom:4px;">${weakest.icon} Weakest area: ${weakest.name}</div>
+        <div style="font-size:13px;color:#3D5166;line-height:1.6;">${bottleneckMessages[weakest.name]}</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:#8FA3B1;">
+      Strongest area: ${strongest.icon} ${strongest.name} — build on this foundation.
+    </div>`;
 
   // Platforms
   const pr = document.getElementById('platformRec');

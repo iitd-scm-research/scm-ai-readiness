@@ -725,17 +725,17 @@ function generateResults() {
 // IMPORTANT: Replace YOUR_FORM_ID and entry.XXXXXXXXX with your actual values
 // Get these from: Google Form → 3-dot menu → "Get pre-filled link"
 function submitToGoogleForm() {
-  const FORM_ID = "YOUR_FORM_ID_HERE"; // ← Replace with your actual form ID
+  const FORM_ID = "1FAIpQLSelDZJoG30dylLZq-iFQesNZqKUUJjpj7BFyRtVZ-hIudrYkQ"; // ← Replace with your actual form ID
   const base = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
 
   // Replace these entry IDs with the actual ones from your Google Form pre-fill URL
   const params = new URLSearchParams({
-    "entry.FIELD_TOTAL":    currentScores.total,
-    "entry.FIELD_DATA":     currentScores.sA,
-    "entry.FIELD_WORKFLOW": currentScores.sB,
-    "entry.FIELD_GOV":      currentScores.sC,
-    "entry.FIELD_ORG":      currentScores.sD,
-    "entry.FIELD_STAGE":    `Stage ${currentScores.stageNum}: ${currentScores.stageName}`
+    "entry.182846187":    currentScores.total,
+    "entry.1240371710":     currentScores.sA,
+    "entry.42441364": currentScores.sB,
+    "entry.1309658645":      currentScores.sC,
+    "entry.1365447032":      currentScores.sD,
+    "entry.681547904":    `Stage ${currentScores.stageNum}: ${currentScores.stageName}`
   });
 
   window.open(`${base}?${params.toString()}`, '_blank');

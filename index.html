@@ -262,6 +262,97 @@
 <div class="container">
 <div id="formSection">
 
+<!-- PROFILE CARD -->
+<div class="dimension-section" id="profileCard">
+  <div class="dim-header">
+    <div class="dim-icon">👤</div>
+    <div>
+      <div class="dim-title">Your Profile</div>
+      <div class="dim-subtitle">Takes 30 seconds · Name &amp; company used only for research follow-up · Assessment is anonymous if you prefer</div>
+    </div>
+    <div class="dim-score-mini" style="color:#1E8A5A" id="profileComplete"></div>
+  </div>
+
+  <div style="padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Full Name <span style="color:#8FA3B1; font-weight:400;">(optional)</span></label>
+      <input type="text" id="prof_name" placeholder="e.g. Rahul Sharma"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9;"
+        oninput="updateProfile()" onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Company / Organization <span style="color:#8FA3B1; font-weight:400;">(optional)</span></label>
+      <input type="text" id="prof_company" placeholder="e.g. Hindustan Unilever"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9;"
+        oninput="updateProfile()" onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Your Role <span style="color:#C55A11;">*</span></label>
+      <select id="prof_role" onchange="updateProfile()"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
+        onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+        <option value="">— Select your role —</option>
+        <option>Demand Planner</option>
+        <option>Supply Chain Manager</option>
+        <option>SCM Director / VP</option>
+        <option>ERP / IT Consultant</option>
+        <option>C-Suite (COO / CSCO / CTO)</option>
+        <option>Operations Manager</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Industry Sector <span style="color:#C55A11;">*</span></label>
+      <select id="prof_industry" onchange="updateProfile()"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
+        onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+        <option value="">— Select your industry —</option>
+        <option>Retail / eCommerce</option>
+        <option>FMCG / Consumer Goods</option>
+        <option>Manufacturing (Discrete)</option>
+        <option>Manufacturing (Process / Pharma)</option>
+        <option>Logistics / 3PL</option>
+        <option>Technology / Telecom</option>
+        <option>Automotive</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Current Demand Planning Platform <span style="color:#C55A11;">*</span></label>
+      <select id="prof_platform" onchange="updateProfile()"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
+        onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+        <option value="">— Select your platform —</option>
+        <option>Blue Yonder (Luminate)</option>
+        <option>SAP IBP</option>
+        <option>Oracle SCM Cloud</option>
+        <option>Kinaxis Maestro</option>
+        <option>o9 Solutions</option>
+        <option>Microsoft Dynamics / AX</option>
+        <option>Other APS / Planning Tool</option>
+        <option>Excel / Manual Process</option>
+        <option>None / Not yet selected</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:5px;">
+      <label style="font-size:12px; font-weight:600; color:#3D5166;">Email <span style="color:#8FA3B1; font-weight:400;">(optional — for report copy)</span></label>
+      <input type="email" id="prof_email" placeholder="e.g. rahul@company.com"
+        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9;"
+        oninput="updateProfile()" onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
+    </div>
+
+  </div>
+  <div style="padding:0 20px 14px; font-size:11px; color:#8FA3B1;">
+    Fields marked <span style="color:#C55A11;">*</span> are required to generate your report. Name, company and email are optional and used only if you'd like to be contacted for a follow-up research conversation.
+  </div>
+</div>
+
 <!-- DIMENSION A: Data Quality -->
 <div class="dimension-section">
   <div class="dim-header">
@@ -571,7 +662,7 @@
     <button class="btn-submit" id="submitBtn" onclick="submitToGoogleForm()">
       Submit My Results to Research →
     </button>
-    <div class="submit-note">Opens Google Form in a new tab · Your scores are pre-filled · Completely anonymous</div>
+    <div class="submit-note">Opens Google Form in a new tab · Industry, platform, role &amp; scores are pre-filled · Takes 30 seconds</div>
   </div>
 
   <button class="btn-retake" onclick="retakeAssessment()">↩ Retake Assessment</button>
@@ -633,6 +724,24 @@ const STAGES = [
 // ── STATE ─────────────────────────────────────────────────────────
 const answers = {};
 let currentScores = {};
+const profile = { name:'', company:'', role:'', industry:'', platform:'', email:'' };
+
+// ── PROFILE ───────────────────────────────────────────────────────
+function updateProfile() {
+  profile.name     = document.getElementById('prof_name').value.trim();
+  profile.company  = document.getElementById('prof_company').value.trim();
+  profile.role     = document.getElementById('prof_role').value;
+  profile.industry = document.getElementById('prof_industry').value;
+  profile.platform = document.getElementById('prof_platform').value;
+  profile.email    = document.getElementById('prof_email').value.trim();
+
+  const required   = profile.role && profile.industry && profile.platform;
+  const badge      = document.getElementById('profileComplete');
+  badge.textContent = required ? '✓ Complete' : '* Required';
+  badge.style.color = required ? '#1E8A5A' : '#C55A11';
+
+  updateProgress();
+}
 
 // ── RADIO BUTTON LISTENERS ─────────────────────────────────────────
 document.querySelectorAll('.option').forEach(opt => {
@@ -658,15 +767,23 @@ document.querySelectorAll('.option').forEach(opt => {
 });
 
 function updateProgress() {
-  const answered = Object.keys(answers).length;
+  const answered      = Object.keys(answers).length;
+  const profileReady  = !!(profile.role && profile.industry && profile.platform);
+  const allDone       = answered >= 20 && profileReady;
   const pct = Math.round((answered / 20) * 100);
+
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressText').textContent = `${answered} of 20 questions answered`;
   document.getElementById('progressPct').textContent  = pct + '%';
-  document.getElementById('progressNote').textContent = answered < 20
-    ? `${answered} / 20 answered — complete all questions to unlock your report`
-    : '20 / 20 answered — click below to generate your report';
-  document.getElementById('generateBtn').disabled = answered < 20;
+
+  if (!profileReady) {
+    document.getElementById('progressNote').textContent = 'Complete your profile above (Role, Industry, Platform) to unlock the report';
+  } else if (answered < 20) {
+    document.getElementById('progressNote').textContent = `${answered} / 20 answered — answer all questions to generate your report`;
+  } else {
+    document.getElementById('progressNote').textContent = '20 / 20 answered — click below to generate your report';
+  }
+  document.getElementById('generateBtn').disabled = !allDone;
 }
 
 function updateDimScore(qname) {
@@ -687,10 +804,15 @@ function generateResults() {
 
   const stage = STAGES.find(s => total >= s.min && total <= s.max) || STAGES[3];
 
-  currentScores = { total, sA, sB, sC, sD, stageNum: stage.num, stageName: stage.name };
+  currentScores = { total, sA, sB, sC, sD, stageNum: stage.num, stageName: stage.name, ...profile };
+
+  // Personalised greeting
+  const greeting = profile.name
+    ? `${profile.name}${profile.company ? ' · ' + profile.company : ''}`
+    : profile.company || '';
 
   // Populate results
-  document.getElementById('stageLabel').textContent = stage.label;
+  document.getElementById('stageLabel').textContent = stage.label + (greeting ? ' · ' + greeting : '');
   document.getElementById('stageTitle').textContent = stage.name;
   document.getElementById('totalScore').textContent  = total;
   document.getElementById('stageDesc').textContent   = stage.desc;
@@ -726,13 +848,17 @@ function submitToGoogleForm() {
   const FORM_ID = "1FAIpQLSelDZJoG30dylLZq-iFQesNZqKUUJjpj7BFyRtVZ-hIudrYkQ";
   const base = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
 
-  // Entry IDs from Google Form pre-fill URL
   const params = new URLSearchParams({
-    "entry.182846187":  currentScores.total,
-    "entry.1240371710": currentScores.sA,
-    "entry.42441364":   currentScores.sB,
-    "entry.1309658645": currentScores.sC,
-    "entry.1365447032": currentScores.sD,
+    "entry.1226691507": currentScores.name,        // Full Name
+    "entry.1469517056": currentScores.company,     // Company
+    "entry.1235945898": currentScores.industry,    // Industry
+    "entry.1449602671": currentScores.platform,    // Platform
+    "entry.259972980":  currentScores.role,        // Role
+    "entry.182846187":  currentScores.total,       // Total Score
+    "entry.1240371710": currentScores.sA,          // Data Quality
+    "entry.42441364":   currentScores.sB,          // Workflows
+    "entry.1309658645": currentScores.sC,          // Governance
+    "entry.1365447032": currentScores.sD,          // Org Readiness
     "entry.681547904":  `Stage ${currentScores.stageNum}: ${currentScores.stageName}`
   });
 
@@ -740,11 +866,18 @@ function submitToGoogleForm() {
 }
 
 function retakeAssessment() {
-  // Reset state
+  // Reset answers
   Object.keys(answers).forEach(k => delete answers[k]);
   document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
   document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
   ['A','B','C','D'].forEach(d => document.getElementById('score'+d).textContent = '0/20');
+
+  // Reset profile
+  ['prof_name','prof_company','prof_email'].forEach(id => document.getElementById(id).value = '');
+  ['prof_role','prof_industry','prof_platform'].forEach(id => document.getElementById(id).value = '');
+  Object.keys(profile).forEach(k => profile[k] = '');
+  document.getElementById('profileComplete').textContent = '';
+
   document.getElementById('formSection').style.display = 'block';
   document.getElementById('results').style.display = 'none';
   updateProgress();

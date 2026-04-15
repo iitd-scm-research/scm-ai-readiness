@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agentic AI Readiness Assessment — Enterprise Demand Planning | IIT Delhi Research</title>
-<meta name="description" content="Evaluate your organization's readiness for agentic AI in demand planning. IIT Delhi eMBA research project comparing Blue Yonder, SAP IBP, Oracle SCM, Kinaxis Maestro and o9 Solutions.">
+<title>Agentic AI Readiness Assessment — Enterprise Demand Planning</title>
+<meta name="description" content="Evaluate your organization's readiness for agentic AI in demand planning. Research project comparing Blue Yonder, SAP IBP, Oracle SCM, Kinaxis Maestro and o9 Solutions.">
 <style>
   :root {
     --navy: #1F3864;
@@ -222,8 +222,8 @@
   <div class="logo">
     <div class="logo-badge">IIT DELHI</div>
     <div>
-      <div class="logo-text">SCM & AI Research</div>
-      <div class="logo-sub">eMBA 2025–27 · ISM/SCM 6000</div>
+      <div class="logo-text">Demand Planning Research</div>
+      <div class="logo-sub">Agentic AI Readiness Initiative</div>
     </div>
   </div>
   <div class="header-badge">Research Instrument</div>
@@ -231,7 +231,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <p class="research-tag">Academic Research · IIT Delhi eMBA 2025–27</p>
+  <p class="research-tag">Academic Research · IIT Delhi</p>
   <h1 style="margin-top:12px">Agentic AI Readiness Assessment<br><span>Enterprise Demand Planning</span></h1>
   <p>Evaluate your organization's readiness to move from AI-assisted forecasting toward autonomous demand planning. Based on comparative analysis of five leading enterprise platforms.</p>
   <div class="platforms">
@@ -566,7 +566,7 @@
 
   <!-- SUBMIT TO RESEARCH -->
   <div class="submit-section">
-    <h3>🎓 Contribute to IIT Delhi Research</h3>
+    <h3>🎓 Contribute to Demand Planning Research</h3>
     <p>Your responses help us understand AI adoption patterns across retail, manufacturing, and logistics. The form takes 60 seconds — your scores are pre-filled automatically. All data is anonymous and used only for academic research.</p>
     <button class="btn-submit" id="submitBtn" onclick="submitToGoogleForm()">
       Submit My Results to Research →
@@ -582,7 +582,7 @@
 <footer class="site-footer">
   <div>Agentic AI Readiness Assessment for Enterprise Demand Planning</div>
   <div>Based on: Blue Yonder · SAP IBP · Oracle SCM · Kinaxis Maestro · o9 Solutions</div>
-  <div>IIT Delhi eMBA 2025–27 · ISM/SCM 6000 · <a href="mailto:research@iitd.ac.in">Contact Research Team</a></div>
+  <div>IIT Delhi Research · <a href="https://iitd-scm-research.github.io/scm-ai-readiness">iitd-scm-research.github.io/scm-ai-readiness</a></div>
 </footer>
 
 <script>
@@ -722,20 +722,18 @@ function generateResults() {
 }
 
 // ── GOOGLE FORM INTEGRATION ────────────────────────────────────────
-// IMPORTANT: Replace YOUR_FORM_ID and entry.XXXXXXXXX with your actual values
-// Get these from: Google Form → 3-dot menu → "Get pre-filled link"
 function submitToGoogleForm() {
-  const FORM_ID = "1FAIpQLSelDZJoG30dylLZq-iFQesNZqKUUJjpj7BFyRtVZ-hIudrYkQ"; // ← Replace with your actual form ID
+  const FORM_ID = "1FAIpQLSelDZJoG30dylLZq-iFQesNZqKUUJjpj7BFyRtVZ-hIudrYkQ";
   const base = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
 
-  // Replace these entry IDs with the actual ones from your Google Form pre-fill URL
+  // Entry IDs from Google Form pre-fill URL
   const params = new URLSearchParams({
-    "entry.182846187":    currentScores.total,
-    "entry.1240371710":     currentScores.sA,
-    "entry.42441364": currentScores.sB,
-    "entry.1309658645":      currentScores.sC,
-    "entry.1365447032":      currentScores.sD,
-    "entry.681547904":    `Stage ${currentScores.stageNum}: ${currentScores.stageName}`
+    "entry.182846187":  currentScores.total,
+    "entry.1240371710": currentScores.sA,
+    "entry.42441364":   currentScores.sB,
+    "entry.1309658645": currentScores.sC,
+    "entry.1365447032": currentScores.sD,
+    "entry.681547904":  `Stage ${currentScores.stageNum}: ${currentScores.stageName}`
   });
 
   window.open(`${base}?${params.toString()}`, '_blank');

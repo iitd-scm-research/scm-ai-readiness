@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentic AI Readiness Assessment — Enterprise Demand Planning</title>
-<meta name="description" content="Evaluate your organization's readiness for agentic AI in demand planning. Research project comparing Blue Yonder, SAP IBP, Oracle SCM, Kinaxis Maestro and o9 Solutions.">
+<meta name="description" content="Evaluate your organization's readiness for agentic AI in demand planning. Research project comparing Blue Yonder / JDA, SAP IBP, Oracle SCM, Kinaxis Maestro and o9 Solutions.">
 <style>
   :root {
     --navy: #1F3864;
@@ -235,7 +235,7 @@
   <h1 style="margin-top:12px">Agentic AI Readiness Assessment<br><span>Enterprise Demand Planning</span></h1>
   <p>Evaluate your organization's readiness to move from AI-assisted forecasting toward autonomous demand planning. Based on comparative analysis of five leading enterprise platforms.</p>
   <div class="platforms">
-    <span class="platform-chip">Blue Yonder</span>
+    <span class="platform-chip">Blue Yonder / JDA</span>
     <span class="platform-chip">SAP IBP</span>
     <span class="platform-chip">Oracle SCM</span>
     <span class="platform-chip">Kinaxis Maestro</span>
@@ -328,7 +328,7 @@
         style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
         onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
         <option value="">— Select your platform —</option>
-        <option>Blue Yonder (Luminate)</option>
+        <option>Blue Yonder / JDA (Luminate)</option>
         <option>SAP IBP</option>
         <option>Oracle SCM Cloud</option>
         <option>Kinaxis Maestro</option>
@@ -672,7 +672,7 @@
 
 <footer class="site-footer">
   <div>Agentic AI Readiness Assessment for Enterprise Demand Planning</div>
-  <div>Based on: Blue Yonder · SAP IBP · Oracle SCM · Kinaxis Maestro · o9 Solutions</div>
+  <div>Based on: Blue Yonder / JDA · SAP IBP · Oracle SCM · Kinaxis Maestro · o9 Solutions</div>
   <div>IIT Delhi Research · <a href="https://iitd-scm-research.github.io/scm-ai-readiness">iitd-scm-research.github.io/scm-ai-readiness</a></div>
 </footer>
 
@@ -685,16 +685,16 @@ const STAGES = [
     roadmap:[
       {priority:"High", text:"Fix data quality first — establish a data governance policy covering demand history completeness, ERP integration, and master data standards."},
       {priority:"High", text:"Document your S&OP process end-to-end before automating it — AI agents can only orchestrate what is already defined."},
-      {priority:"Med",  text:"Pilot basic ML forecasting on your highest-volume SKUs using SAP IBP's built-in algorithms or Blue Yonder Demand Edge."},
+      {priority:"Med",  text:"Pilot basic ML forecasting on your highest-volume SKUs using SAP IBP's built-in algorithms or Blue Yonder / JDA Demand Edge."},
       {priority:"Low",  text:"Begin organizational readiness by training planning team on how to read and validate AI-generated forecasts."}
     ]
   },
   { min:31, max:45, num:2, name:"AI/ML Forecasting",         label:"STAGE 2", color:"#17A8B4",
     desc:"ML is in use but primarily for forecast generation. You have the data foundation in place. The next step is exception-based workflows and explainability — moving planners from reviewing everything to managing by exception.",
-    platforms:["Blue Yonder Luminate","SAP IBP with Joule AI","Oracle SCM Cloud"],
+    platforms:["Blue Yonder / JDA (Luminate)","SAP IBP with Joule AI","Oracle SCM Cloud"],
     roadmap:[
       {priority:"High", text:"Implement planner-by-exception workflows — configure your system to only alert planners to significant forecast deviations, not routine SKUs."},
-      {priority:"High", text:"Deploy XAI (explainability) features: planners should see WHY a forecast changed, not just that it changed. Blue Yonder's driver waterfall is the market benchmark."},
+      {priority:"High", text:"Deploy XAI (explainability) features: planners should see WHY a forecast changed, not just that it changed. Blue Yonder / JDA's driver waterfall is the market benchmark."},
       {priority:"Med",  text:"Strengthen governance: define which AI-generated replenishment orders can execute automatically and which require approval."},
       {priority:"Low",  text:"Build organizational trust through transparency — publish weekly reports showing AI forecast accuracy vs. manual override accuracy."}
     ]
@@ -711,7 +711,7 @@ const STAGES = [
   },
   { min:61, max:80, num:4, name:"Agentic AI Planning",       label:"STAGE 4", color:"#1E8A5A",
     desc:"Your organization is at or near the agentic AI frontier. You have strong data foundations, digitized workflows, defined governance, and an AI-ready team. Focus shifts to multi-agent orchestration, LLM-based cross-domain reasoning, and ecosystem-level coordination.",
-    platforms:["Kinaxis Maestro (Agent Studio)","o9 Solutions (APEX + Neuro-Symbolic AI)","Blue Yonder (Agentic AI Stack)"],
+    platforms:["Kinaxis Maestro (Agent Studio)","o9 Solutions (APEX + Neuro-Symbolic AI)","Blue Yonder / JDA (Agentic AI Stack)"],
     roadmap:[
       {priority:"High", text:"Explore multi-agent architectures — Kinaxis Maestro Agent Studio and o9 APEX both support composable agents across demand, supply, and procurement domains."},
       {priority:"High", text:"Invest in ecosystem-level orchestration — AI agents coordinating with supplier, manufacturer, and logistics partner systems simultaneously."},

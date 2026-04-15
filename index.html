@@ -295,13 +295,13 @@
         style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
         onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
         <option value="">— Select your role —</option>
-        <option>Demand Planner</option>
-        <option>Supply Chain Manager</option>
-        <option>SCM Director / VP</option>
-        <option>ERP / IT Consultant</option>
-        <option>C-Suite (COO / CSCO / CTO)</option>
-        <option>Operations Manager</option>
-        <option>Other</option>
+        <option value="Demand Planner">Demand Planner</option>
+        <option value="Supply Chain Manager">Supply Chain Manager</option>
+        <option value="SCM Director/VP">SCM Director / VP</option>
+        <option value="ERP/IT Consultant">ERP / IT Consultant</option>
+        <option value="C-Suite">C-Suite (COO / CSCO / CTO)</option>
+        <option value="Operations Manager">Operations Manager</option>
+        <option value="Other">Other</option>
       </select>
     </div>
 
@@ -311,14 +311,14 @@
         style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
         onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
         <option value="">— Select your industry —</option>
-        <option>Retail / eCommerce</option>
-        <option>FMCG / Consumer Goods</option>
-        <option>Manufacturing (Discrete)</option>
-        <option>Manufacturing (Process / Pharma)</option>
-        <option>Logistics / 3PL</option>
-        <option>Technology / Telecom</option>
-        <option>Automotive</option>
-        <option>Other</option>
+        <option value="Retail/eCommerce">Retail / eCommerce</option>
+        <option value="Manufacturing (Discrete)">Manufacturing (Discrete)</option>
+        <option value="Manufacturing (Process/FMCG)">Manufacturing (Process / FMCG)</option>
+        <option value="Logistics/3PL">Logistics / 3PL</option>
+        <option value="Technology/Telecom">Technology / Telecom</option>
+        <option value="Pharma">Pharma</option>
+        <option value="Automotive">Automotive</option>
+        <option value="Other">Other</option>
       </select>
     </div>
 
@@ -328,28 +328,20 @@
         style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9; cursor:pointer;"
         onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
         <option value="">— Select your platform —</option>
-        <option>Blue Yonder / JDA (Luminate)</option>
-        <option>SAP IBP</option>
-        <option>Oracle SCM Cloud</option>
-        <option>Kinaxis Maestro</option>
-        <option>o9 Solutions</option>
-        <option>Microsoft Dynamics / AX</option>
-        <option>Other APS / Planning Tool</option>
-        <option>Excel / Manual Process</option>
-        <option>None / Not yet selected</option>
+        <option value="Blue Yonder / JDA">Blue Yonder / JDA (Luminate)</option>
+        <option value="SAP IBP">SAP IBP</option>
+        <option value="Oracle SCM Cloud">Oracle SCM Cloud</option>
+        <option value="Kinaxis Maestro">Kinaxis Maestro</option>
+        <option value="o9 Solutions">o9 Solutions</option>
+        <option value="Other APS">Other APS / Planning Tool</option>
+        <option value="Excel/Manual">Excel / Manual Process</option>
+        <option value="None">None / Not yet selected</option>
       </select>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:5px;">
-      <label style="font-size:12px; font-weight:600; color:#3D5166;">Email <span style="color:#8FA3B1; font-weight:400;">(optional — for report copy)</span></label>
-      <input type="email" id="prof_email" placeholder="e.g. rahul@company.com"
-        style="padding:9px 12px; border:1.5px solid #E2E8EF; border-radius:6px; font-size:13px; outline:none; font-family:inherit; background:#F4F7F9;"
-        oninput="updateProfile()" onfocus="this.style.borderColor='#0E7C86'" onblur="this.style.borderColor='#E2E8EF'">
     </div>
 
   </div>
   <div style="padding:0 20px 14px; font-size:11px; color:#8FA3B1;">
-    Fields marked <span style="color:#C55A11;">*</span> are required to generate your report. Name, company and email are optional and used only if you'd like to be contacted for a follow-up research conversation.
+    Fields marked <span style="color:#C55A11;">*</span> are required to generate your report. Name and company are optional and used only if you'd like to be contacted for a follow-up research conversation.
   </div>
 </div>
 
@@ -724,7 +716,7 @@ const STAGES = [
 // ── STATE ─────────────────────────────────────────────────────────
 const answers = {};
 let currentScores = {};
-const profile = { name:'', company:'', role:'', industry:'', platform:'', email:'' };
+const profile = { name:'', company:'', role:'', industry:'', platform:'' };
 
 // ── PROFILE ───────────────────────────────────────────────────────
 function updateProfile() {
@@ -733,7 +725,6 @@ function updateProfile() {
   profile.role     = document.getElementById('prof_role').value;
   profile.industry = document.getElementById('prof_industry').value;
   profile.platform = document.getElementById('prof_platform').value;
-  profile.email    = document.getElementById('prof_email').value.trim();
 
   const required   = profile.role && profile.industry && profile.platform;
   const badge      = document.getElementById('profileComplete');
@@ -873,7 +864,7 @@ function retakeAssessment() {
   ['A','B','C','D'].forEach(d => document.getElementById('score'+d).textContent = '0/20');
 
   // Reset profile
-  ['prof_name','prof_company','prof_email'].forEach(id => document.getElementById(id).value = '');
+  ['prof_name','prof_company'].forEach(id => document.getElementById(id).value = '');
   ['prof_role','prof_industry','prof_platform'].forEach(id => document.getElementById(id).value = '');
   Object.keys(profile).forEach(k => profile[k] = '');
   document.getElementById('profileComplete').textContent = '';

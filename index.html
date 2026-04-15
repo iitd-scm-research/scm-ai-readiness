@@ -381,12 +381,12 @@
 
   <!-- Q3 -->
   <div class="question" data-q="q3" data-dim="A">
-    <div class="q-header"><div class="q-num">3</div><div class="q-text">How well integrated is your demand planning system with ERP, inventory management, and order management systems?</div></div>
+    <div class="q-header"><div class="q-num">3</div><div class="q-text">How well does your demand planning system connect upstream (data sources, ERP) and downstream (procurement, production, logistics)?</div></div>
     <div class="options">
-      <label class="option"><input type="radio" name="q3" value="1"><div class="option-score">1</div><div class="option-text">Manual exports/imports — spreadsheet-driven handoffs</div></label>
-      <label class="option"><input type="radio" name="q3" value="2"><div class="option-score">2</div><div class="option-text">Batch integrations with latency (daily/weekly sync)</div></label>
-      <label class="option"><input type="radio" name="q3" value="3"><div class="option-score">3</div><div class="option-text">Near real-time ERP integration across key modules</div></label>
-      <label class="option"><input type="radio" name="q3" value="4"><div class="option-score">4</div><div class="option-text">Full real-time bidirectional integration across ERP/WMS/TMS</div></label>
+      <label class="option"><input type="radio" name="q3" value="1"><div class="option-score">1</div><div class="option-text">Disconnected — manual exports/imports at both ends, no live data flow</div></label>
+      <label class="option"><input type="radio" name="q3" value="2"><div class="option-score">2</div><div class="option-text">Partial — upstream ERP data syncs periodically; downstream actions still triggered manually</div></label>
+      <label class="option"><input type="radio" name="q3" value="3"><div class="option-score">3</div><div class="option-text">Connected — near real-time upstream feeds; demand plan flows to supply planning automatically</div></label>
+      <label class="option"><input type="radio" name="q3" value="4"><div class="option-score">4</div><div class="option-text">Fully integrated — live bidirectional data upstream; demand signals autonomously trigger procurement, production and logistics downstream</div></label>
     </div>
   </div>
 
@@ -459,12 +459,12 @@
 
   <!-- Q9 -->
   <div class="question" data-q="q9" data-dim="B">
-    <div class="q-header"><div class="q-num">9</div><div class="q-text">How does your planning system connect demand decisions to downstream supply chain actions (procurement, production, inventory)?</div></div>
+    <div class="q-header"><div class="q-num">9</div><div class="q-text">How effectively does your S&amp;OP process achieve consensus across sales, finance, supply chain, and operations on a single demand plan?</div></div>
     <div class="options">
-      <label class="option"><input type="radio" name="q9" value="1"><div class="option-score">1</div><div class="option-text">Manual handoffs via email or shared documents</div></label>
-      <label class="option"><input type="radio" name="q9" value="2"><div class="option-score">2</div><div class="option-text">Periodic ERP uploads with partial automation</div></label>
-      <label class="option"><input type="radio" name="q9" value="3"><div class="option-score">3</div><div class="option-text">Demand plan flows to supply planning automatically</div></label>
-      <label class="option"><input type="radio" name="q9" value="4"><div class="option-score">4</div><div class="option-text">End-to-end: demand signal triggers supply, procurement, and logistics actions</div></label>
+      <label class="option"><input type="radio" name="q9" value="1"><div class="option-score">1</div><div class="option-text">No formal consensus — each function maintains its own plan</div></label>
+      <label class="option"><input type="radio" name="q9" value="2"><div class="option-score">2</div><div class="option-text">Occasional alignment meetings but no single agreed plan in the system</div></label>
+      <label class="option"><input type="radio" name="q9" value="3"><div class="option-score">3</div><div class="option-text">Regular S&amp;OP cycle produces a shared plan — some manual reconciliation still needed</div></label>
+      <label class="option"><input type="radio" name="q9" value="4"><div class="option-score">4</div><div class="option-text">System-enforced single plan with real-time visibility across all functions and automated conflict resolution</div></label>
     </div>
   </div>
 
@@ -582,12 +582,12 @@
 
   <!-- Q18 -->
   <div class="question" data-q="q18" data-dim="D">
-    <div class="q-header"><div class="q-num">18</div><div class="q-text">How does your planning team respond when AI recommendations differ significantly from their intuition?</div></div>
+    <div class="q-header"><div class="q-num">18</div><div class="q-text">How does your planning team handle AI recommendations — particularly around routine decisions and planner overrides?</div></div>
     <div class="options">
-      <label class="option"><input type="radio" name="q18" value="1"><div class="option-score">1</div><div class="option-text">Always override — we trust human experience exclusively</div></label>
-      <label class="option"><input type="radio" name="q18" value="2"><div class="option-score">2</div><div class="option-text">Mostly override unless the AI variance is very large</div></label>
-      <label class="option"><input type="radio" name="q18" value="3"><div class="option-score">3</div><div class="option-text">Investigate the discrepancy — often follow AI with documented reasoning</div></label>
-      <label class="option"><input type="radio" name="q18" value="4"><div class="option-score">4</div><div class="option-text">Follow AI recommendations by default; overrides documented and reviewed</div></label>
+      <label class="option"><input type="radio" name="q18" value="1"><div class="option-score">1</div><div class="option-text">Always override — planners trust their own experience exclusively, AI output is largely ignored</div></label>
+      <label class="option"><input type="radio" name="q18" value="2"><div class="option-score">2</div><div class="option-text">Mostly override unless the AI variance is very large — no documentation of overrides</div></label>
+      <label class="option"><input type="radio" name="q18" value="3"><div class="option-score">3</div><div class="option-text">Investigate discrepancies — often follow AI with reasoning documented in the system</div></label>
+      <label class="option"><input type="radio" name="q18" value="4"><div class="option-score">4</div><div class="option-text">AI recommendations followed by default for routine decisions; overrides require documented justification and feed back into model retraining</div></label>
     </div>
   </div>
 
